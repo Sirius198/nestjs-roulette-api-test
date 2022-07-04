@@ -13,7 +13,7 @@ export class RouletteService {
             return false;
         return true;
     }
-    
+
     spin(bets: BetProperty[], startBalance: number, winningNumber: number): BetResult {
 
         let betResult = new BetResult;
@@ -26,23 +26,20 @@ export class RouletteService {
                     if (winningNumber % 2 == 1) {
                         betResult.winning.push(bets[i]);
                     }
-                    else
-                        startBalance -= bets[i].betAmount;
+                    startBalance -= bets[i].betAmount;
                     break;
                 case 'even':
                     if (winningNumber % 2 == 0) {
                         betResult.winning.push(bets[i]);
                     }
-                    else
-                        startBalance -= bets[i].betAmount;
+                    startBalance -= bets[i].betAmount;
                     break;
 
                 default: // number bet
                     if (winningNumber === bets[i].betType) {
                         betResult.winning.push(bets[i]);
                     }
-                    else
-                        startBalance -= bets[i].betAmount;
+                    startBalance -= bets[i].betAmount;
                     break;
             }
         }
