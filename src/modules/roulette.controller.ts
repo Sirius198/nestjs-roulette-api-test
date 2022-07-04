@@ -23,7 +23,6 @@ export class RouletteController {
     @Post('/create')
     public async createGame(@Req() request: Request, @Res() res: Response, @Body() body: CreateRoulette) {
 
-        return res.status(200).send(constants.JWT_KEY);
         const { gameMode, token } = body;
         let startBalance;
         if (gameMode == 'normal') {
